@@ -1,0 +1,171 @@
+!!!!!   BRAVO VOUS AVEZ RÉUSSI LA PREMIÈRE ÉTAPE !!!!!
+
+Chiffre de Vigenère
+
+Blaise de Vigenère.
+
+Le chiffre de Vigenère est un système de chiffrement polyalphabétique, c’est un chiffrement par substitution, mais une même lettre du message clair peut, suivant sa position dans celui-ci, être remplacée par des lettres différentes, contrairement à un système de chiffrement mono alphabétique comme le chiffre de César (qu'il utilise cependant comme composant). Cette méthode résiste ainsi à l'analyse de fréquences, ce qui est un avantage décisif sur les chiffrements mono alphabétiques. Cependant le chiffre de Vigenère a été percé par le major prussien Friedrich Kasiski qui a publié sa méthode en 1863. Depuis cette époque, il n‘offre plus aucune sécurité.
+
+Il est nommé ainsi au XIXe siècle en référence au diplomate du XVIe siècle Blaise de Vigenère, qui le décrit (intégré à un chiffrement plus complexe) dans son traité des chiffres paru en 1586. On trouve en fait déjà une méthode de chiffrement analogue dans un court traité de Giovan Battista Bellaso paru en 1553.
+Sommaire
+
+    1 Principe du chiffrement
+        1.1 La table de Vigenère
+        1.2 Chiffrement
+        1.3 Principe mathématique
+    2 Cryptanalyse
+    3 Variantes
+    4 Le chiffre de Vigenère en littérature
+    5 Le chiffre de Vigenère à l'écran
+    6 Notes et références
+        6.1 Notes
+        6.2 Références
+    7 Annexes
+        7.1 Bibliographie
+        7.2 Articles connexes
+        7.3 Liens externes
+
+Principe du chiffrement
+
+Ce chiffrement introduit la notion de clé. Une clé se présente généralement sous la forme d'un mot ou d'une phrase. Pour pouvoir chiffrer notre texte, à chaque caractère nous utilisons une lettre de la clé pour effectuer la substitution. Évidemment, plus la clé sera longue et variée et mieux le texte sera chiffré. Il faut savoir qu'il y a eu une période où des passages entiers d'œuvres littéraires étaient utilisés pour chiffrer les plus grands secrets. Les deux correspondants n'avaient plus qu'à avoir en leurs mains un exemplaire du même livre pour s'assurer de la bonne compréhension des messages.
+La table de Vigenère
+
+L'outil indispensable du chiffrement de Vigenère est la « table de Vigenère »
+
+Table de Vigenère.
+	Lettre en clair
+A 	B 	C 	D 	E 	F 	G 	H 	I 	J 	K 	L 	M 	N 	O 	P 	Q 	R 	S 	T 	U 	V 	W 	X 	Y 	Z
+Lettre de la clé 	Lettres chiffrées (au croisement de la colonne Lettre en clair et de la ligne Lettre de la clé)
+A 	A 	B 	C 	D 	E 	F 	G 	H 	I 	J 	K 	L 	M 	N 	O 	P 	Q 	R 	S 	T 	U 	V 	W 	X 	Y 	Z
+B 	B 	C 	D 	E 	F 	G 	H 	I 	J 	K 	L 	M 	N 	O 	P 	Q 	R 	S 	T 	U 	V 	W 	X 	Y 	Z 	A
+C 	C 	D 	E 	F 	G 	H 	I 	J 	K 	L 	M 	N 	O 	P 	Q 	R 	S 	T 	U 	V 	W 	X 	Y 	Z 	A 	B
+D 	D 	E 	F 	G 	H 	I 	J 	K 	L 	M 	N 	O 	P 	Q 	R 	S 	T 	U 	V 	W 	X 	Y 	Z 	A 	B 	C
+E 	E 	F 	G 	H 	I 	J 	K 	L 	M 	N 	O 	P 	Q 	R 	S 	T 	U 	V 	W 	X 	Y 	Z 	A 	B 	C 	D
+F 	F 	G 	H 	I 	J 	K 	L 	M 	N 	O 	P 	Q 	R 	S 	T 	U 	V 	W 	X 	Y 	Z 	A 	B 	C 	D 	E
+G 	G 	H 	I 	J 	K 	L 	M 	N 	O 	P 	Q 	R 	S 	T 	U 	V 	W 	X 	Y 	Z 	A 	B 	C 	D 	E 	F
+H 	H 	I 	J 	K 	L 	M 	N 	O 	P 	Q 	R 	S 	T 	U 	V 	W 	X 	Y 	Z 	A 	B 	C 	D 	E 	F 	G
+I 	I 	J 	K 	L 	M 	N 	O 	P 	Q 	R 	S 	T 	U 	V 	W 	X 	Y 	Z 	A 	B 	C 	D 	E 	F 	G 	H
+J 	J 	K 	L 	M 	N 	O 	P 	Q 	R 	S 	T 	U 	V 	W 	X 	Y 	Z 	A 	B 	C 	D 	E 	F 	G 	H 	I
+K 	K 	L 	M 	N 	O 	P 	Q 	R 	S 	T 	U 	V 	W 	X 	Y 	Z 	A 	B 	C 	D 	E 	F 	G 	H 	I 	J
+L 	L 	M 	N 	O 	P 	Q 	R 	S 	T 	U 	V 	W 	X 	Y 	Z 	A 	B 	C 	D 	E 	F 	G 	H 	I 	J 	K
+M 	M 	N 	O 	P 	Q 	R 	S 	T 	U 	V 	W 	X 	Y 	Z 	A 	B 	C 	D 	E 	F 	G 	H 	I 	J 	K 	L
+N 	N 	O 	P 	Q 	R 	S 	T 	U 	V 	W 	X 	Y 	Z 	A 	B 	C 	D 	E 	F 	G 	H 	I 	J 	K 	L 	M
+O 	O 	P 	Q 	R 	S 	T 	U 	V 	W 	X 	Y 	Z 	A 	B 	C 	D 	E 	F 	G 	H 	I 	J 	K 	L 	M 	N
+P 	P 	Q 	R 	S 	T 	U 	V 	W 	X 	Y 	Z 	A 	B 	C 	D 	E 	F 	G 	H 	I 	J 	K 	L 	M 	N 	O
+Q 	Q 	R 	S 	T 	U 	V 	W 	X 	Y 	Z 	A 	B 	C 	D 	E 	F 	G 	H 	I 	J 	K 	L 	M 	N 	O 	P
+R 	R 	S 	T 	U 	V 	W 	X 	Y 	Z 	A 	B 	C 	D 	E 	F 	G 	H 	I 	J 	K 	L 	M 	N 	O 	P 	Q
+S 	S 	T 	U 	V 	W 	X 	Y 	Z 	A 	B 	C 	D 	E 	F 	G 	H 	I 	J 	K 	L 	M 	N 	O 	P 	Q 	R
+T 	T 	U 	V 	W 	X 	Y 	Z 	A 	B 	C 	D 	E 	F 	G 	H 	I 	J 	K 	L 	M 	N 	O 	P 	Q 	R 	S
+U 	U 	V 	W 	X 	Y 	Z 	A 	B 	C 	D 	E 	F 	G 	H 	I 	J 	K 	L 	M 	N 	O 	P 	Q 	R 	S 	T
+V 	V 	W 	X 	Y 	Z 	A 	B 	C 	D 	E 	F 	G 	H 	I 	J 	K 	L 	M 	N 	O 	P 	Q 	R 	S 	T 	U
+W 	W 	X 	Y 	Z 	A 	B 	C 	D 	E 	F 	G 	H 	I 	J 	K 	L 	M 	N 	O 	P 	Q 	R 	S 	T 	U 	V
+X 	X 	Y 	Z 	A 	B 	C 	D 	E 	F 	G 	H 	I 	J 	K 	L 	M 	N 	O 	P 	Q 	R 	S 	T 	U 	V 	W
+Y 	Y 	Z 	A 	B 	C 	D 	E 	F 	G 	H 	I 	J 	K 	L 	M 	N 	O 	P 	Q 	R 	S 	T 	U 	V 	W 	X
+Z 	Z 	A 	B 	C 	D 	E 	F 	G 	H 	I 	J 	K 	L 	M 	N 	O 	P 	Q 	R 	S 	T 	U 	V 	W 	X 	Y
+Chiffrement
+
+Pour chaque lettre en clair, on sélectionne la colonne correspondante et pour une lettre de la clé on sélectionne la ligne adéquate, puis au croisement de la ligne et de la colonne on trouve la lettre chiffrée. La lettre de la clé est à prendre dans l'ordre dans laquelle elle se présente et on répète la clé en boucle autant que nécessaire.
+
+    Clé : musique
+    Texte : J'adore écouter la radio toute la journée
+
+Texte en clair :   j'adore ecouter la radio toute la journee
+Clé répétée    :   M USIQU EMUSIQU EM USIQU EMUSI QU EMUSIQU
+                   ^ ^^^
+                   | ||Colonne O, ligne I : on obtient la lettre W.
+                   | |Colonne D, ligne S : on obtient la lettre V.
+                   | Colonne A, ligne U : on obtient la lettre U.
+                   Colonne J, ligne M : on obtient la lettre V.
+
+Le texte chiffré est alors :
+
+    V'UVWHY IOIMBUL PM LSLYI XAOLM BU NAOJVUY.
+
+Si on veut déchiffrer ce texte, on regarde pour chaque lettre de la clé répétée la ligne correspondante et on y cherche la lettre chiffrée. La première lettre de la colonne que l'on trouve ainsi est la lettre déchiffrée.
+
+Texte chiffré  :   V'UVWHY IOIMBUL PM LSLYI XAOLM BU NAOJVUY
+Clé répétée    :   M USIQU EMUSIQU EM USIQU EMUSI QU EMUSIQU
+                   ^ ^^^
+                   | ||Ligne I, on cherche W : on trouve la colonne O.
+                   | |Ligne S, on cherche V : on trouve la colonne D.
+                   | Ligne U, on cherche U : on trouve la colonne A.
+                   Ligne M, on cherche V : on trouve la colonne J.
+
+Principe mathématique
+
+Mathématiquement, on identifie les lettres de l'alphabet aux nombres de 0 à 25 (A=0, B=1...). Les opérations de chiffrement et de déchiffrement sont, pour chaque lettre, celles du chiffre de César. En désignant la ie lettre du texte clair par Texte[i], la ie du chiffré par Chiffré[i], et la ie lettre de la clé, répétée suffisamment de fois, par Clés[i], elle se formalise par :
+
+    Chiffré[i] = (Texte[i] + Clés[i]) modulo 26
+    Texte[i] = (Chiffré[i] - Clés[i]) modulo 26
+
+où x modulo 26 désigne le reste de la division entière de x par 26. Pour le chiffrement il suffit d'effectuer l'addition des deux lettres puis de soustraire 26 si le résultat dépasse 26. Pour le déchiffrement il suffit d'effectuer la soustraction et d'additionner 26 si le résultat est négatif. Le déchiffrement est aussi une opération identique à celle du chiffrement pour la clé obtenue par Clé'[i] = 26 - Clé[i]. Un disque à chiffrer (en), qui utilise une représentation circulaire de l'alphabet (après Z on a A), permet de réaliser directement cette opération.
+
+Le chiffré d'un texte suffisamment long constitué uniquement de A donne la clé ( 0 + x = x, soit A + Clés[i] = Clés[i] ).
+Cryptanalyse
+ Article détaillé : Cryptanalyse du chiffre de Vigenère.
+
+Si l'on connait le nombre de symboles que comporte la clé, il devient possible de procéder par analyse de fréquences sur chacun des sous-textes déterminés en sélectionnant des lettres du message clair à intervalle la longueur de la clef (autant de sous-textes que la longueur de la clef). C'est l'attaque bien connue sur les chiffrements mono-alphabétiques.
+
+Friedrich Kasiski publie en 1863 une méthode efficace pour déterminer la taille de la clef, le test de Kasiski, en repérant la répétition de certains motifs dans le message chiffré. Charles Babbage s'est intéressé au chiffrement de Vigenère une dizaine d'années auparavant. Il avait déchiffré dans des cas particuliers des messages chiffrés par la méthode de Vigenère. Il n'a rien publié à ce sujet, mais on dispose de ses notes. On ne sait pas quelle méthode il a utilisée, il a pu exploiter des faiblesses de l'utilisation du chiffrement. Certains historiens pensent qu'il a pu découvrir la méthode de Kasiski, bien qu'il n'en ait pas laissé de trace écritenote 1.
+
+Des techniques statistiques fondées sur l'indice de coïncidence, découvertes au XXe siècle, s'avèrent encore plus efficaces pour casser le chiffre.
+extrait de La cifra del Sig. Giovan Battista Bel[l]aso ... Venetia 1553,
+une grille de permutations alphabétique indexée par des lettres, qui permet une variante du chiffre dit « de Vigenère » où ce sont les 10 permutations de la grille qui sont utilisées plutôt que les 26 décalages alphabétiques du chiffre de César.
+Variantes
+
+Le chiffre de Vigenère a été réinventé de nombreuses fois au cours des siècles et il a existé plusieurs variantes. Il n'est pas indispensable d'utiliser un décalage comme substitution alphabétique, n'importe quelle permutation des lettres de l'alphabet convient. L'avantage du chiffre de César est d'être entièrement déterminé par la lettre qui donne le décalage. Mais, avant Vigenère, Giovan Battista Bellaso avait proposé un tel système (repris par le physicien Giambattista della Porta qui s'en inspire sans citer Beloso), où chacun des correspondants dispose d'une même grille qui donne une suite de permutations de l'alphabet chacune associée à une ou plusieurs lettres. Chiffrement et déchiffrement demandent la grille et un mot clef. Les lettres du mot clef sont utilisées de la même façon que pour le chiffrement de Vigenère, mais indiquent l'une des permutations de la grille et non un décalagenote 2. A priori, la connaissance de la grille ne permet pas à elle seule de déchiffrer le message, puisqu'il faut le mot clef. Cependant le chiffrement est susceptible des mêmes attaques que celui de Vigenère.
+
+Le système a connu d'autres variantes comme le chiffre de Beaufort.
+Le chiffre de Vigenère en littérature
+
+    Dans le roman La Jangada, Jules Verne met en scène une intrigue qui tourne autour d'un cryptogramme basé sur le chiffre de Gronsfeld, une variante du chiffre de Vigenère.
+    Le roman Nigrida, de Mikhaïl W. Ramseier, un message codé selon le chiffre de Vigenère, lui-même dissimulé dans un problème du cavalier de Euler, permet la découverte d'un trésor.
+    Le roman Lac, de Jean Echenoz, le personnage principal décode un message codé selon le chiffre de Vigenère, reproduit dans le point du "i" d'un prospectus.
+
+Le chiffre de Vigenère à l'écran
+
+    Dans la série télévisée américaine Sleepy Hollow, un manuscrit permettant de combattre le Cavalier Sans Tête est codé selon le chiffre de Vigenère.
+    Dans la série télévisée américaine Souvenirs de Gravity Falls, des cryptogrammes dans le générique de fin, à partir de la saison 2, peuvent être décryptés grâce au chiffre de Vigenère.
+    Dans la série télévisée Blindspot diffusée en 2016 sur TF1, dans l'épisode 2 de la saison 1, le chiffre de Vigenère est utilisé pour décoder le nom du pilote d'avion Gibson inscrit sur le corps de l'actrice Jaimie Alexander (Jane Doe), nom décodé à partir de la clé correspondant à l'adresse de l'appartement de Chow dans China Town de l'épisode 1.
+    Dans la série télévisée Teen Wolf (saison 4, épisode 4), un code est déchiffré par Lydia Martin à trois reprises.
+
+Notes et références
+Notes
+
+Bauer semble lui-même très prudent1.
+
+    Le chiffre est décrit dans le livre de David Kahn2, et par Kerckhoffs3,4, qui l'attribue à Porta, dans la première partie de son article.
+
+Références
+
+Bauer 2006, p. 340–341.
+Kahn 1973.
+Kerckhoffs janvier 1883.
+
+    Kerckhoffs février 1883.
+
+Annexes
+Bibliographie
+
+    [Bauer 2006] (en) Friedrich L. Bauer, Decrypted Secrets : Methods and Maxims of Cryptology, New York, Springer, 2006, 4e éd. (ISBN 3-540-24502-2).
+    [Kahn 1973] (en) David Kahn, The codebreakers, MacMillan, 1973, chap. 5
+    Pour les informations historiques de l'introduction.
+    [Kerckhoffs janvier 1883] Auguste Kerckhoffs, « La Cryptographie militaire », Journal des sciences militaires, vol. IX,‎ janvier 1883, p. 5–38 (lire en ligne [archive] [PDF])
+    Cet article, célèbre par ailleurs pour son énoncé du principe de Kerckhoffs, contient une analyse du chiffrement de Vigenère et de l'attaque de Kasiski.
+    [Kerckhoffs février 1883] Auguste Kerckhoffs, « La Cryptographie militaire », Journal des sciences militaires, vol. IX,‎ février 1883, p. 161–191 (lire en ligne [archive])
+    Cet article, célèbre par ailleurs pour son énoncé du principe de Kerckhoffs, contient une analyse du chiffrement de Vigenère et de l'attaque de Kasiski.
+
+Articles connexes
+
+    Cryptographie symétrique
+    Masque jetable
+
+Liens externes
+
+    (fr) JavaScript et explications sur Vigenère [archive]
+    (fr) Le chiffre de Vigenère [archive]
+    (fr) Cryptanalyse de Vigenère [archive]
+    (fr) Outil en Tcl pour chiffrer fichier binaire ou texte [archive]
+    (fr) Exemple en flash de l'utilisation du carré de Vigenère [archive]
+    (fr) Traicté des chiffres, ou Secrètes manières d'escrire [archive], par Blaise de Vigenère,... - A. L'Angelier (Paris) - 1586
+    (en) Vijner Encryption Tool, une application opensource basée sur l'algorithme de Vigenère [archive]

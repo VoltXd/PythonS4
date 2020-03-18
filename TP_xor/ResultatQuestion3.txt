@@ -1,0 +1,102 @@
+BRAVO VOUS AVEZ RÉUSSI CETTE ÉTAPE DIFFICILE ENVOYEZ MOI VITE VOTRE PROGRAMME
+
+Cryptographie
+Sauter à la navigation
+Sauter à la recherche
+La machine de Lorenz utilisée par les nazis durant la Seconde Guerre mondiale pour chiffrer les communications militaires de haut niveau entre Berlin et les quartiers-généraux des différentes armées.
+
+La cryptographie est une des disciplines de la cryptologie s'attachant à protéger des messages (assurant confidentialité, authenticité et intégrité) en s'aidant souvent de secrets ou clés. Elle se distingue de la stéganographie qui fait passer inaperçu un message dans un autre message alors que la cryptographie rend un message inintelligible à autre que qui-de-droit.
+
+Elle est utilisée depuis l'Antiquité, mais certaines de ses méthodes les plus importantes, comme la cryptographie asymétrique, datent de la fin du XXe siècle. 
+
+Algorithmes de chiffrement faible (facilement déchiffrables)
+
+Les premiers algorithmes utilisés pour le chiffrement d'une information étaient assez rudimentaires dans leur ensemble. Ils consistaient notamment au remplacement de caractères par d'autres. La confidentialité de l'algorithme de chiffrement était donc la pierre angulaire de ce système pour éviter un décryptage rapide.
+
+Exemples d'algorithmes de chiffrement faibles :
+
+    ROT13 (rotation de 13 caractères, sans clé) ;
+    Chiffre de César (décalage de trois lettres dans l'alphabet sur la gauche) ;
+    Chiffre de Vigenère (introduit la notion de clé).
+
+
+Étymologie et vocabulaire
+
+Le mot cryptographie vient des mots en grec ancien kruptos (κρυπτός) « caché » et graphein (γράφειν) « écrire ». Beaucoup des termes de la cryptographie utilisent la racine « crypt- », ou des dérivés du terme « chiffre ».
+
+    chiffrement : transformation à l'aide d'une clé d'un message en clair (dit texte clair) en un message incompréhensible (dit texte chiffré) pour celui qui ne dispose pas de la clé de déchiffrement (en anglais encryption key ou private key pour la cryptographie asymétrique) ;
+    chiffre un ensemble de règles permettant d'écrire et de lire dans un langage secret ;
+    cryptogramme : message chiffré ;
+    cryptosystème : algorithme de chiffrement;
+    décrypter : retrouver le message clair correspondant à un message chiffré sans posséder la clé de déchiffrement (terme que ne possèdent pas les anglophones, qui eux « cassent » des codes secrets) ;
+    cryptographie : étymologiquement « écriture secrète », devenue par extension l'étude de cet art (donc aujourd'hui la science visant à créer des cryptogrammes, c'est-à-dire à chiffrer) ;
+    cryptanalyse : science analysant les cryptogrammes en vue de les décrypter ;
+    cryptologie : science regroupant la cryptographie et la cryptanalyse.
+    cryptolecte : jargon réservé à un groupe restreint de personnes désirant dissimuler leur communication.
+
+Plus récemment sont apparus les termes « crypter » (pour chiffrer) et « cryptage » pour chiffrement. Ceux-ci sont acceptés par l'Office québécois de la langue française dans son grand dictionnaire terminologique1, qui note que « La tendance actuelle favorise les termes construits avec crypt-. ». Le Grand Robert mentionne également « cryptage », et date son apparition de 1980. Cependant le Dictionnaire de l'Académie française n'intègre ni « crypter » ni « cryptage » dans sa dernière édition (entamée en 1992). Ces termes sont ailleurs considérés comme incorrects par exemple par l'ANSSI2, qui met en avant le sens particulier du mot « décrypter » (retrouver le message clair à partir du message chiffré sans connaître la clef) en regard du couple chiffrer/déchiffrer.
+Histoire
+Article détaillé : Histoire de la cryptologie.
+Partition musicale du compositeur Maurice de Raoulx avec une invention de code sous forme de notes de musique. Archives nationales de France.
+
+Utilisé depuis l'antiquité, l'une des utilisations les plus célèbres pour cette époque est le chiffre de César, nommé en référence à Jules César qui l'utilisait pour ses communications secrètes. Mais la cryptographie est bien antérieure à cela : le plus ancien document chiffré est une recette secrète de poterie qui date du XVIe siècle av. J.-C., qui a été découverte dans l'actuelle Irak.
+
+L'historien en cryptographie David Kahn considère l'humaniste Leon Battista Alberti comme le « père de la cryptographie occidentale », grâce à trois avancées significatives : « la plus ancienne théorie occidentale de cryptanalyse, l'invention de la substitution polyalphabétique, et l'invention du code de chiffrement3. »
+
+Bien qu'éminemment stratégique, la cryptographie est restée pendant très longtemps un art, pour ne devenir une science qu'au XXIe siècle. Avec l'apparition de l'informatique, son utilisation se démocratise de plus en plus.
+Utilisations
+Les domaines d'utilisations de la cryptographie sont très vastes et vont du domaine militaire, au commercial, en passant par la protection de la vie privée. 
+
+
+
+Algorithmes de cryptographie symétrique (à clé secrète)
+Article détaillé : Cryptographie symétrique.
+
+Les algorithmes de chiffrement symétrique se fondent sur une même clé pour chiffrer et déchiffrer un message. L'un des problèmes de cette technique est que la clé, qui doit rester totalement confidentielle, doit être transmise au correspondant de façon sûre. La mise en œuvre peut s'avérer difficile, surtout avec un grand nombre de correspondants car il faut autant de clés que de correspondants.
+
+Quelques algorithmes de chiffrement symétrique très utilisés :
+
+    Chiffre de Vernam (le seul offrant une sécurité théorique absolue, à condition que la clé ait au moins la même longueur que le message à chiffrer, qu'elle ne soit utilisée qu'une seule fois et qu'elle soit totalement aléatoire)
+    DES
+    3DES
+    AES
+    RC4
+    RC5
+    MISTY1
+    et d'autres (voir la liste plus exhaustive d'algorithmes de cryptographie symétrique).
+
+Algorithmes de cryptographie asymétrique (à clé publique et privée)
+Article détaillé : Cryptographie asymétrique.
+
+Pour résoudre le problème de l'échange de clés, la cryptographie asymétrique a été mise au point dans les années 1970. Elle se base sur le principe de deux clés :
+
+    une publique, permettant le chiffrement ;
+    une privée, permettant le déchiffrement.
+
+Comme son nom l'indique, la clé publique est mise à la disposition de quiconque désire chiffrer un message. Ce dernier ne pourra être déchiffré qu'avec la clé privée, qui doit rester confidentielle.
+
+Quelques algorithmes de cryptographie asymétrique très utilisés :
+
+    RSA (chiffrement et signature);
+    DSA (signature);
+    Protocole d'échange de clés Diffie-Hellman (échange de clé);
+    et d'autres ; voir cette liste plus complète d'algorithmes de cryptographie asymétrique.
+
+Le principal inconvénient de RSA et des autres algorithmes à clés publiques est leur grande lenteur par rapport aux algorithmes à clés secrètes. RSA est par exemple 1000 fois plus lent que DES. En pratique, dans le cadre de la confidentialité, on s'en sert pour chiffrer un nombre aléatoire qui sert ensuite de clé secrète pour un algorithme de chiffrement symétrique. C'est le principe qu'utilisent des logiciels comme PGP par exemple.
+
+La cryptographie asymétrique est également utilisée pour assurer l'authenticité d'un message. L'empreinte du message est chiffrée à l'aide de la clé privée et est jointe au message. Les destinataires déchiffrent ensuite le cryptogramme à l'aide de la clé publique et retrouvent normalement l'empreinte. Cela leur assure que l'émetteur est bien l'auteur du message. On parle alors de signature ou encore de scellement.
+
+La plupart des algorithmes de cryptographie asymétrique sont vulnérables à des attaques utilisant un calculateur quantique, à cause de l'algorithme de Shor. La branche de la cryptographie visant à garantir la sécurité en présence d'un tel adversaire est la cryptographie post-quantique.
+Fonctions de hachage
+Article détaillé : Fonction de hachage.
+
+Une fonction de hachage est une fonction qui convertit un grand ensemble en un plus petit ensemble, l'empreinte. Il est impossible de la déchiffrer pour revenir à l'ensemble d'origine, ce n'est donc pas une technique de chiffrement.
+
+Quelques fonctions de hachage très utilisées :
+
+    MD5 ;
+    SHA-1 ;
+    SHA-256 ;
+    et d'autres ; voir cette liste plus complète d'algorithmes de hachage.
+
+L'empreinte d'un message ne dépasse généralement pas 256 bits (maximum 512 bits pour SHA-512) et permet de vérifier son intégrité. 

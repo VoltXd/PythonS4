@@ -23,6 +23,7 @@ def encodingDecodingFromFile(filename, wFilename, key):
         print('unauthorized to open ', wFilename)
         sys.exit(-1)
     
+    #Knowing the key, this encode or decode a message according to the key. The result directly goes in fw.
     keyLength = len(key)
     i = 0
     while 1:
@@ -39,6 +40,9 @@ def encodingDecodingFromFile(filename, wFilename, key):
         fw.write(code)
         i+=1
     return 
-    
-encodingDecodingFromFile('question1.enc', 'ResultatQuestion1.txt', 'z}ed!/?fG/YX')
+
+
+
+if __name__ == '__main__':
+    encodingDecodingFromFile('question1.enc', 'ResultatQuestion1.txt', 'z}ed!/?fG/YX')
     
